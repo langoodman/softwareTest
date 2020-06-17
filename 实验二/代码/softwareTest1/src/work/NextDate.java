@@ -56,15 +56,16 @@ public class NextDate {
 	 * @return
 	 */
 	public static String getNextDay( int y , int m , int d ) {
+		if( m <= 0 || m > 12 || d > 31 || d <= 0 || y > 2050 || y < 1900 ) return "Invalid date";
 		if( m != 12 ){
 			if( isLastDay( y , m , d ) ){
 				m++;
 				d = 1;
-				return y + " " + m + " " + d;
+				return y + "年" + m + "月" + d + "日";
 			}
 			else{
 				d++;
-				return y + " " + m + " " + d;
+				return y + "年" + m + "月" + d + "日";
 			}
 		}
 		else{
@@ -72,11 +73,11 @@ public class NextDate {
 				y++;
 				d = 1;
 				m = 1;
-				return y + " " + m + " " + d;
+				return y + "年" + m + "月" + d + "日";
 			}
 			else{
 				d++;
-				return y + " " + m + " " + d;
+				return y + "年" + m + "月" + d + "日";
 			}
 		}
 	}
